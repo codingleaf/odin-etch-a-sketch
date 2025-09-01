@@ -1,2 +1,3 @@
-const GRID_SIZE = 450
+const GRID_SIZE = 400
+
 

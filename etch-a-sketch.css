@@ -81,6 +81,10 @@ main {
   padding: 0.2rem 0;
 }
 
+.grid-size-form__input:focus {
+  outline: none;
+}
+
 .grid-size-form__submit-button {
   font: inherit;
   padding: 0.2rem 0.8rem;
@@ -100,19 +104,21 @@ main {
   color: white;
 }
 
-.grid-size-form__submit-button:active {
-  transform: translate(-1px, 1px) scale(90%);
-  background-color: darkcyan;
-  box-shadow: none;
-}
-
-.grid-size-form__input:focus {
+.grid-size-form__submit-button:focus {
+  opacity: 0.8;
+  transform: scale(110%); 
+  color: white;
   outline: none;
 }
 
+.grid-size-form__submit-button:active {
+  transform: translate(-1px, 1px) scale(90%);
+  background-color: darkcyan;
+}
+
 .grid {
-  min-width: 450px;
-  max-width: 450px;
+  min-width: 400px;
+  max-width: 400px;
   aspect-ratio: 1/1;
   border: 4px solid teal;
   border-radius: 4px;
