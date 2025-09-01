@@ -9,20 +9,20 @@
   <script src="etch-a-sketch.js" defer></script>
 </head>
 <body>
+  <template id="row-template">
+    <div class="row"></div>
+  </template>
+  
   <template id="cell-template">
     <div class="cell"></div>
   </template>
 
-  <template id="row-template">
-    <div class="row"></div>
-  </template>
-
   <header>
-    <h1>🏳️‍🌈 Etch-a-Sketch</h1>
+    <h1 class="app-title">🏳️‍🌈 Etch-a-Sketch</h1>
   </header>
 
   <main>
-    <form id="grid-size" class="grid-size-form" action="#">
+    <form id="grid-size" class="grid-size-form" action="#" novalidate>
       <div class="grid-size-form__row">
         <label for="grid-size-input" class="grid-size-form__label">Grid Size</label>
         <input id="grid-size-input" placeholder="e.g. 100" class="grid-size-form__input" type="number" min="1" step="1">
@@ -34,7 +34,7 @@
   </main>
 
   <footer>
-    <p>&copy; 2025 codingleaf</p>
+    <p class="copyright">&copy; 2025 codingleaf</p>
   </footer>
 </body>
 </html>
