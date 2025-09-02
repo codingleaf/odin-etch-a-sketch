@@ -99,4 +99,10 @@ function main () {
       alert(`Invalid input. Please enter a valid integer.`)
     }
   })
+
+  grid.node.addEventListener('mouseover', (e) => {
+    if (e.target.matches('.cell')) {
+      e.target.style.backgroundColor = randColor()
+    }
+  })
 }

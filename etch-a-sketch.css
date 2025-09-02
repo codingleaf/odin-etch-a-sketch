@@ -136,7 +136,3 @@ main {
 .row {
   display: flex;
 }
-
-.cell {
-  background-color: blue;
-}
