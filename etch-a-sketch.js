@@ -30,7 +30,7 @@ function generateGrid(gridNode) {
     },
   }
 
-  function getGridWidth(grid) {
+  function getGridWidth() {
     const clientWidth = grid.node.clientWidth
     const style = getComputedStyle(grid.node)
     const paddingLeft = parseFloat(style.paddingLeft)
@@ -39,7 +39,7 @@ function generateGrid(gridNode) {
     return contentWidth
   }
 
-  function getGridHeight(grid) {
+  function getGridHeight() {
     const clientHeight = grid.node.clientHeight
     const style = getComputedStyle(grid.node)
     const paddingTop = parseFloat(style.paddingTop)
@@ -49,14 +49,36 @@ function generateGrid(gridNode) {
   }
 
   function generate(rows, cols = null) {
+    grid.node.innerHTML = ''
+
     if (!cols) {
       cols = rows
     }
 
+    const gridFragment = document.createDocumentFragment()
+
+    // Create cell and row template
+    const cell = document.createElement('div')
     const row = document.createElement('div')
-    for (let i = 0; i < rows; i++) {
-      
+    cell.classList.add('cell')
+    row.classList.add('row')
+    cell.style.width = `${getGridWidth(grid.node) / cols}px`
+    cell.style.height = `${getGridHeight(grid.node) / rows}px`
+
+    // Create a single row with the appropriate number of cells
+    for (let i = 0; i < cols; i++) {
+      const cellCopy = cell.cloneNode()
+      row.appendChild(cellCopy)
     }
+
+    // Create all rows
+    for (let i = 0; i < rows; i++) {
+      const gridRow = row.cloneNode(true)
+      gridFragment.appendChild(gridRow)
+    }
+
+    // Add rows to grid
+    grid.node.appendChild(gridFragment)
   }
 
   return grid
