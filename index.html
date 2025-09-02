@@ -9,14 +9,6 @@
   <script src="etch-a-sketch.js" defer></script>
 </head>
 <body>
-  <template id="row-template">
-    <div class="row"></div>
-  </template>
-  
-  <template id="cell-template">
-    <div class="cell"></div>
-  </template>
-
   <header>
     <h1 class="app-title">🏳️‍🌈 Etch-a-Sketch</h1>
   </header>
@@ -25,7 +17,7 @@
     <form id="grid-size" class="grid-size-form" action="#" novalidate>
       <div class="grid-size-form__row">
         <label for="grid-size-input" class="grid-size-form__label">Dimensions</label>
-        <input id="grid-size-input" placeholder="e.g. 100 × 100" class="grid-size-form__input" type="number" min="1" step="1">
+        <input id="grid-size-input" placeholder="e.g. 100" class="grid-size-form__input" type="number" min="1" step="1">
       </div>
       <button type="submit" class="grid-size-form__submit-button">Generate</button>
     </form>
