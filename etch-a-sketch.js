@@ -36,11 +36,12 @@ function main () {
     if (e.target.matches('.cell')) updateCell(e.target)
   })
 
-  grid.node.addEventListener('touchmove', ({ touches }) => {
-    const { clientX, clientY } = touches[0]
+  grid.node.addEventListener('touchmove', (e) => {
+    e.preventDefault()
+    const { clientX, clientY } = e.touches[0]
     const element = document.elementFromPoint(clientX, clientY)
     if (element?.matches('.cell')) updateCell(element)
-  })
+  }, { passive: false })
 }
 
 const COLORS = [
