@@ -9,6 +9,7 @@ html, body {
 }
 
 body {
+  user-select: none;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   display: flex;
   flex-direction: column;
@@ -136,4 +137,8 @@ main {
 
 .row {
   display: flex;
+}
+
+.cell {
+  transition: 1s;
 }

@@ -18,17 +18,28 @@ function main () {
     }
   })
 
-  grid.node.addEventListener('mouseover', (e) => {
-    if (e.target.matches('.cell')) {
-      const cell = e.target
-      if (cell.style.backgroundColor) {
-        const cellOpacity = parseFloat(cell.style.opacity)
-        cell.style.opacity =  Math.min(cellOpacity + 0.1, 1)
-      } else {
-        cell.style.backgroundColor = randColor(COLORS)
-        cell.style.opacity = '0.1'
-      }
+  const updateCell = (cell) => {
+    if (cell.style.backgroundColor) {
+      const cellOpacity = parseFloat(cell.style.opacity)
+      cell.style.opacity =  Math.min(cellOpacity + 0.1, 1)
+    } else {
+      cell.style.backgroundColor = randColor(COLORS)
+      cell.style.opacity = '0.1'
     }
+  }
+
+  grid.node.addEventListener('mouseover', (e) => {
+    if (e.target.matches('.cell')) updateCell(e.target)
+  })
+
+  grid.node.addEventListener('touchstart', (e) => {
+    if (e.target.matches('.cell')) updateCell(e.target)
+  })
+
+  grid.node.addEventListener('touchmove', ({ touches }) => {
+    const { clientX, clientY } = touches[0]
+    const element = document.elementFromPoint(clientX, clientY)
+    if (element?.matches('.cell')) updateCell(element)
   })
 }
 
